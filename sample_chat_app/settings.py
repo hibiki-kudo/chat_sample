@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'channels',
     'chat',
+    'push_notifications',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -68,16 +69,25 @@ TEMPLATES = [
     },
 ]
 
+PUSH_NOTIFICATIONS_SETTINGS = {
+    "FCM_API_KEY": "AIzaSyCrmT_TgzZbuAon-g2VuoUrhDQA7qVHBaU",
+    "FCM_ERROR_TIMEOUT": 1000,
+    "WP_PRIVATE_KEY": os.path.join(BASE_DIR, "private_key.pem"),
+    "WP_CLAIMS": {'sub': "mailto: hibiki9712@gmail.com"}
+}
+
 WSGI_APPLICATION = 'sample_chat_app.wsgi.application'
 ASGI_APPLICATION = 'sample_chat_app.routing.application'
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             "hosts": [('127.0.0.1', 6379)],
-        },
+        }
     },
 }
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 

@@ -9,6 +9,12 @@ verify_ssl = true
 django = "*"
 channels = "*"
 channels-redis = "*"
+uwsgi = "*"
+daphne = "*"
+django-push-notifications = "*"
+pywebpush = "*"
+py-vapid = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"
